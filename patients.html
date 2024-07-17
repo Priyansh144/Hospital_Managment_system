@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients</title>
+    <!-- Include Bootstrap CSS (assuming you're using Bootstrap for styling) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Patients</h1>
+
+        <!-- Add Patient Button -->
+        <a href="{{ url_for('add_patient') }}" class="btn btn-primary mb-3">Add Patient</a>
+
+        <!-- Display patients data -->
+        {% if patients %}
+        <ul class="list-group">
+            {% for patient in patients %}
+            <li class="list-group-item">
+                <div>
+                    <strong>Patient ID:</strong> {{ patient[0] }}, 
+                    <strong>Name:</strong> {{ patient[1] }}, 
+                    <strong>Number:</strong> {{ patient[2] }}, 
+                    <strong>Gender:</strong> {{ patient[3] }}, 
+                    <strong>Disease:</strong> {{ patient[4] }}, 
+                    <strong>Room Number:</strong> {{ patient[5] }}, 
+                    <strong>Admission Time:</strong> {{ patient[6] }}, 
+                    <strong>Deposit:</strong> {{ patient[7] }}
+                </div>
+                <!-- Form to remove patient -->
+                <form method="POST" action="{{ url_for('remove_patient', patient_id=patient[0]) }}" class="d-inline">
+                    <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                </form>
+                <!-- Link to update patient -->
+                <a href="{{ url_for('show_update_patient_form', patient_id=patient[0]) }}" class="btn btn-warning btn-sm">Update</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No patients found.</p>
+        {% endif %}
+
+        <!-- Link to go back to dashboard -->
+        <a href="{{ url_for('dashboard') }}" class="btn btn-secondary mt-3">Back to Dashboard</a>
+    </div>
+
+    <!-- Include Bootstrap JS (for optional functionalities like tooltips) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-HSMxcL1gZ0wbREPVgCiCJJ4hZYuY4+gqDg9rS+3N9Ei5+0UuBUy0V/EFeSa+nKwW" crossorigin="anonymous"></script>
+</body>
+</html>

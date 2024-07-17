@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambulances</title>
+    <!-- Include Bootstrap CSS (assuming you're using Bootstrap for styling) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Ambulances</h1>
+
+        <!-- Display ambulances data -->
+        {% if ambulances %}
+        <ul class="list-group">
+            {% for ambulance in ambulances %}
+            <li class="list-group-item">
+                <div>
+                    <strong>Ambulance ID:</strong> {{ ambulance[0] }}<br>
+                    <strong>Driver Name:</strong> {{ ambulance[1] }}<br>
+                    <strong>Gender:</strong> {{ ambulance[2] }}<br>
+                    <strong>Car Name:</strong> {{ ambulance[3] }}<br>
+                    <strong>Availability:</strong> {{ ambulance[4] }}<br>
+                    <strong>Location:</strong> {{ ambulance[5] }}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No ambulances found.</p>
+        {% endif %}
+
+        <!-- Link to go back to dashboard -->
+        <a href="{{ url_for('dashboard') }}" class="btn btn-secondary mt-3">Back to Dashboard</a>
+    </div>
+
+    <!-- Include Bootstrap JS (for optional functionalities like tooltips) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-HSMxcL1gZ0wbREPVgCiCJJ4hZYuY4+gqDg9rS+3N9Ei5+0UuBUy0V/EFeSa+nKwW" crossorigin="anonymous"></script>
+</body>
+</html>

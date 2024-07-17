@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Welcome to Hospital Management System</h1>
+        <nav>
+            <ul class="nav flex-column align-items-center">
+                <li class="nav-item mb-2">
+                    <a href="{{ url_for('patients') }}" class="btn btn-primary">Manage Patients</a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ url_for('employees') }}" class="btn btn-primary">Manage Employees</a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ url_for('rooms') }}" class="btn btn-primary">Manage Rooms</a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ url_for('ambulances') }}" class="btn btn-primary">Manage Ambulances</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-HSMxcL1gZ0wbREPVgCiCJJ4hZYuY4+gqDg9rS+3N9Ei5+0UuBUy0V/EFeSa+nKwW" crossorigin="anonymous"></script>
+</body>
+</html>

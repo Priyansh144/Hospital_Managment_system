@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Custom styles -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light grey background */
+            padding: 20px;
+        }
+        .dashboard-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff; /* White background for container */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Soft shadow effect */
+        }
+        .welcome-text {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .dashboard-sections ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .dashboard-sections li {
+            margin-bottom: 10px;
+        }
+        .dashboard-sections li a {
+            display: block;
+            padding: 10px 15px;
+            background-color: #007bff; /* Bootstrap primary color for buttons */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .dashboard-sections li a:hover {
+            background-color: #0056b3; /* Darker shade of primary color on hover */
+        }
+        hr {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1 class="welcome-text">Welcome, {{ username }}</h1>
+        
+        <div class="dashboard-sections">
+            <h2>Dashboard Sections:</h2>
+            <ul>
+                <li><a href="{{ url_for('patients') }}">View Patients</a></li>
+                <li><a href="{{ url_for('employees') }}">View Employees</a></li>
+                <li><a href="{{ url_for('rooms') }}">View Rooms</a></li>
+                <li><a href="{{ url_for('ambulances') }}">View Ambulances</a></li>
+                <li><a href="{{ url_for('departments') }}">View Departments</a></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-HSMxcL1gZ0wbREPVgCiCJJ4hZYuY4+gqDg9rS+3N9Ei5+0UuBUy0V/EFeSa+nKwW" crossorigin="anonymous"></script>
+</body>
+</html>
